@@ -22,6 +22,10 @@ function backgroundColor(color){
   document.querySelector('body').style.backgroundColor = color
 }
 
+function boxWidth(size){
+  document.querySelector('.number').style.width = size
+}
+
 generateRandomNumber()
 console.log(generateRandomNumber())
 
@@ -36,7 +40,7 @@ function check(){
   }else if(guess == userInput){
     displayMessage('🎉 Correct Number!')  
     backgroundColor('#60b347')
-    document.querySelector('.number').style.width = '30rem'
+    boxWidth('30rem')
     if(score.textContent > highScore.textContent){
       highScore.textContent = score.textContent
     }
@@ -52,7 +56,7 @@ function check(){
     generateRandomNumber()
     displayMessage('Start guessing...'  )
     backgroundColor('#222')
-    document.querySelector('.number').style.width = '15rem'
+    boxWidth('15rem')
     score.textContent = 20
     secretNumber.textContent = '?'
     document.querySelector('.guess').value = ''
