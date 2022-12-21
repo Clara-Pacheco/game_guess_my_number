@@ -28,25 +28,13 @@ function check(){
       highScore.textContent = score.textContent
     }
     secretNumber.textContent = guess
-  }else if(userInput > guess){
+  }else if(guess !== userInput){
       if(Number(score.textContent) > 1){
-        document.querySelector('.message').textContent = ' 📈 Too high!'
+        document.querySelector('.message').textContent = userInput > guess ? ' 📈 Too high!' : '📉 Too low!'
         score.textContent = Number(score.textContent) - 1
-      }else{
-        document.querySelector('.message').textContent = ' 💣 You lost!'
-        score.textContent = 0
-      }
-  }else if (userInput < guess){
-    if(Number(score.textContent) > 1){
-      document.querySelector('.message').textContent = ' 📈 Too low!'
-      score.textContent = Number(score.textContent) - 1
-    }else{
-      document.querySelector('.message').textContent = ' 💣 You lost!'
-      score.textContent = 0
     }
-   }
   }
-
+}
   againBtn.addEventListener('click',function(){
     guess = Math.round(Math.random()*10*2)
     document.querySelector('.message').textContent = 'Start guessing...'  
@@ -57,6 +45,4 @@ function check(){
     document.querySelector('.guess').value = ''
 
   })
-
-
 
