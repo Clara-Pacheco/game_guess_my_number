@@ -5,16 +5,21 @@ let checkBtn = document.querySelector(".check")
 
 let score = document.querySelector(".score")
 let highScore = document.querySelector(".highscore")
-
-let guess = Math.round(Math.random()*10*2)
-
-console.log(guess)
+let guess 
 
 checkBtn.addEventListener('click',check)
+
+function generateRandomNumber(){
+  guess = Math.round(Math.random()*10*2)
+  return guess
+}
 
 function displayMessage(message){
   document.querySelector('.message').textContent = message  
 }
+
+generateRandomNumber()
+console.log(generateRandomNumber())
 
 function check(){
 
@@ -40,7 +45,7 @@ function check(){
   }
 }
   againBtn.addEventListener('click',function(){
-    guess = Math.round(Math.random()*10*2)
+    generateRandomNumber()
     displayMessage('Start guessing...'  )
     document.querySelector('body').style.backgroundColor = '#222'
     document.querySelector('.number').style.width = '15rem'
