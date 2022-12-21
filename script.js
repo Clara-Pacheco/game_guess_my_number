@@ -18,6 +18,10 @@ function displayMessage(message){
   document.querySelector('.message').textContent = message  
 }
 
+function backgroundColor(color){
+  document.querySelector('body').style.backgroundColor = color
+}
+
 generateRandomNumber()
 console.log(generateRandomNumber())
 
@@ -31,7 +35,7 @@ function check(){
     displayMessage('⛔ No number!')   
   }else if(guess == userInput){
     displayMessage('🎉 Correct Number!')  
-    document.querySelector('body').style.backgroundColor = '#60b347'
+    backgroundColor('#60b347')
     document.querySelector('.number').style.width = '30rem'
     if(score.textContent > highScore.textContent){
       highScore.textContent = score.textContent
@@ -47,7 +51,7 @@ function check(){
   againBtn.addEventListener('click',function(){
     generateRandomNumber()
     displayMessage('Start guessing...'  )
-    document.querySelector('body').style.backgroundColor = '#222'
+    backgroundColor('#222')
     document.querySelector('.number').style.width = '15rem'
     score.textContent = 20
     secretNumber.textContent = '?'
